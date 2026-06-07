@@ -1,26 +1,333 @@
 @import "tailwindcss";
 
+@theme {
+  /* ── Indigo — brand primary #262265 (60%) ───────────────
+     "navy-*" names kept so existing utilities keep working,
+     but the values are now the brand indigo family.        */
+  --color-navy-950: #0a0822;
+  --color-navy-900: #110e35;
+  --color-navy-800: #181449;
+  --color-navy-700: #1f1a59;
+  --color-navy-600: #262265; /* ← brand */
+  --color-navy-500: #322d82;
+  --color-navy-400: #443ca3;
+
+  /* ── Amber — brand accent #FBB040 (30%) ─────────────────
+     "gold-*" names kept; values are now the brand amber.    */
+  --color-gold-950: #3a2400;
+  --color-gold-900: #5c3a00;
+  --color-gold-800: #8f5e0a;
+  --color-gold-700: #c07e12;
+  --color-gold-600: #e89a26;
+  --color-gold-500: #fbb040; /* ← brand */
+  --color-gold-400: #fcc062;
+  --color-gold-300: #fdd089;
+  --color-gold-200: #fee3b5;
+  --color-gold-100: #fff4e0;
+
+  /* ── Sky — brand accent #30C2F2 (20%) ───────────────────── */
+  --color-sky-700: #0f86b8;
+  --color-sky-600: #1ba3d4;
+  --color-sky-500: #30c2f2; /* ← brand */
+  --color-sky-400: #5cd0f5;
+  --color-sky-300: #8ddef8;
+  --color-sky-200: #bdecfb;
+
+  /* Cool neutral / text */
+  --color-cream: #eef1f8;
+  --color-cream-dark: #d4d8e8;
+  --color-slate-muted: #8f96bd;
+  --color-slate-dim: #51527e;
+
+  /* Fonts */
+  --font-display: var(--font-lemon-milk);
+  --font-sans: var(--font-fc-minimal);
+  --font-thai: var(--font-fc-minimal);
+  --font-latin: var(--font-lemon-milk);
+}
+
+/* ─── Base ─────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: dark;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #110e35;
+  color: #eef1f8;
+  font-family: var(--font-fc-minimal), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Display elements use Lemon Milk Pro */
+.font-display {
+  font-family: var(--font-lemon-milk), ui-sans-serif, sans-serif;
+  letter-spacing: 0.02em;
+}
+
+/* ─── Keyframes ─────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes drawPath {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -300% center; }
+  100% { background-position: 300% center; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.6; }
+  50%       { opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50%       { transform: translateY(6px); opacity: 0.5; }
+}
+
+/* ─── Animation utilities ───────────────── */
+.animate-fade-up {
+  opacity: 0;
+  animation: fadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in {
+  opacity: 0;
+  animation: fadeIn 0.7s ease-out forwards;
+}
+
+.animate-draw {
+  stroke-dashoffset: 2000;
+  animation: drawPath 2.5s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-scroll-bounce {
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+
+/* Stagger delays */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+.delay-700 { animation-delay: 0.7s; }
+.delay-800 { animation-delay: 0.8s; }
+.delay-900 { animation-delay: 0.9s; }
+.delay-1000 { animation-delay: 1.0s; }
+.delay-1200 { animation-delay: 1.2s; }
+
+/* ─── Gold shimmer text ─────────────────── */
+.text-gold-shimmer {
+  background: linear-gradient(
+    90deg,
+    #fbb040 0%,
+    #fee3b5 35%,
+    #fbb040 55%,
+    #c07e12 100%
+  );
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 5s linear infinite;
+}
+
+/* ─── Scroll reveal ─────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Dividers ──────────────────────────── */
+.divider-gold {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, #fbb040 40%, #fbb040 60%, transparent 100%);
+  opacity: 0.4;
+}
+
+.divider-gold-full {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #fbb040 20%, #fbb040 80%, transparent);
+}
+
+/* ─── Noise texture overlay ─────────────── */
+.noise::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.025;
+  pointer-events: none;
+}
+
+/* ─── Pillar cards ──────────────────────── */
+.pillar-card {
+  position: relative;
+  border: 1px solid rgba(251, 176, 64, 0.12);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+  transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease;
+}
+
+.pillar-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, #fbb040, #c07e12);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pillar-card:hover {
+  border-color: rgba(251, 176, 64, 0.35);
+  background: linear-gradient(
+    135deg,
+    rgba(251, 176, 64, 0.05) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  transform: translateY(-4px);
+}
+
+.pillar-card:hover::before {
+  transform: scaleY(1);
+}
+
+/* ─── Value row ─────────────────────────── */
+.value-row {
+  border-bottom: 1px solid rgba(251, 176, 64, 0.1);
+  transition: background 0.3s ease;
+}
+
+.value-row:hover {
+  background: rgba(251, 176, 64, 0.04);
+}
+
+/* ─── CTA button ────────────────────────── */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  background: linear-gradient(135deg, #fbb040, #e89a26);
+  color: #110e35;
+  font-family: var(--font-fc-minimal), sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.btn-gold:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  background: transparent;
+  color: #fbb040;
+  font-family: var(--font-fc-minimal), sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 1px solid rgba(251, 176, 64, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  border-color: #fbb040;
+  background: rgba(251, 176, 64, 0.08);
+  transform: translateY(-1px);
+}
+
+/* ─── Section label ─────────────────────── */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #fbb040;
+}
+
+.section-label::before {
+  content: "";
+  display: block;
+  width: 2rem;
+  height: 1px;
+  background: #fbb040;
+}
+
+/* ─── Woven ribbons graphic ─────────────────────────────────
+   The SVG shapes render statically (animating SVG clip-path /
+   stroke-dashoffset directly hit a Chromium repaint bug). The
+   entrance is handled at the <svg> level only — a clean opacity +
+   slide that settles on the natural, fully-painted state. */
+@keyframes wovenIn {
+  from { opacity: 0; transform: translateX(36px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.woven {
+  animation: wovenIn 1.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .woven { animation: none; }
 }
