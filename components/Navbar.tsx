@@ -69,8 +69,14 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* CTA */}
-        <div className="hidden md:flex items-center gap-4">
+        {/* CTA — hidden at the top (clashes with the hero ribbon); reveals on scroll */}
+        <div
+          className={`hidden md:flex items-center gap-4 transition-all duration-500 ${
+            scrolled
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 -translate-y-1 pointer-events-none"
+          }`}
+        >
           <a href="#contact" className="btn-outline text-xs px-5 py-2.5">
             Partner With Us
           </a>

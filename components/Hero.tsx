@@ -105,15 +105,20 @@ export default function Hero() {
         </svg>
       </div>
 
-      {/* Woven-ribbon graphic — top-right signature */}
-      <WovenRibbons className="hidden lg:block absolute right-0 top-0 bottom-0 w-[42%] z-1 pointer-events-none" />
+      {/* Woven-ribbon graphic — top-right signature.
+          Masked (not overlaid) so it dissolves into the background with no seam. */}
       <div
-        className="hidden lg:block absolute right-0 top-0 bottom-0 w-[42%] z-2 pointer-events-none"
+        className="hidden lg:block absolute right-0 top-0 bottom-0 w-[44%] z-1 pointer-events-none"
         style={{
-          background:
-            "linear-gradient(90deg, #05060f 0%, rgba(10,8,34,0.55) 26%, transparent 62%)",
+          WebkitMaskImage: "linear-gradient(90deg, transparent 0%, #000 50%, #000 100%)",
+          maskImage: "linear-gradient(90deg, transparent 0%, #000 50%, #000 100%)",
         }}
-      />
+      >
+        <WovenRibbons className="absolute inset-0 h-full w-full" />
+      </div>
+
+      {/* Grain overlay — breaks up gradient banding for a smoother wash */}
+      <div className="noise absolute inset-0 z-2 pointer-events-none" aria-hidden="true" />
 
       {/* Main content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-32 pb-20">
@@ -171,22 +176,22 @@ export default function Hero() {
             </a>
           </div>
         </div>
+      </div>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-fade-in delay-1200">
-          <span className="text-slate-muted text-xs tracking-[0.2em] uppercase font-sans">
-            Scroll
-          </span>
-          <div className="animate-scroll-bounce">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <path d="M10 4v12M4 11l6 6 6-6" stroke="#fbb040" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" strokeOpacity="0.7"/>
-            </svg>
-          </div>
+      {/* Scroll indicator — pinned to the very bottom of the hero */}
+      <div className="absolute bottom-7 left-1/2 -translate-x-1/2 z-10 hidden sm:flex flex-col items-center gap-2 animate-fade-in delay-1200 pointer-events-none">
+        <span className="text-slate-muted/70 text-[0.65rem] tracking-[0.3em] uppercase font-sans">
+          Scroll
+        </span>
+        <div className="animate-scroll-bounce">
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+            <path d="M10 4v12M4 11l6 6 6-6" stroke="#fbb040" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" strokeOpacity="0.7"/>
+          </svg>
         </div>
       </div>
 
       {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-navy-900 to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-navy-900 to-transparent pointer-events-none" />
     </section>
   );
 }

@@ -34,15 +34,19 @@ export default function CTA() {
         </svg>
       </div>
 
-      {/* Woven-ribbon graphic — the R/J hook weaving through the warp strands */}
-      <WovenRibbons className="hidden lg:block absolute right-0 top-0 bottom-0 w-[46%] z-0" />
+      {/* Woven-ribbon graphic — masked (not overlaid) so it dissolves with no seam */}
       <div
-        className="hidden lg:block absolute right-0 top-0 bottom-0 w-[46%] z-1 pointer-events-none"
+        className="hidden lg:block absolute right-0 top-0 bottom-0 w-[46%] z-0 pointer-events-none"
         style={{
-          background:
-            "linear-gradient(90deg, #110e35 0%, rgba(17,14,53,0.85) 8%, rgba(17,14,53,0) 46%)",
+          WebkitMaskImage: "linear-gradient(90deg, transparent 0%, #000 48%, #000 100%)",
+          maskImage: "linear-gradient(90deg, transparent 0%, #000 48%, #000 100%)",
         }}
-      />
+      >
+        <WovenRibbons className="absolute inset-0 h-full w-full" />
+      </div>
+
+      {/* Grain overlay — smooths gradient banding */}
+      <div className="noise absolute inset-0 z-0 pointer-events-none" aria-hidden="true" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
         <div className="max-w-2xl mx-auto text-center lg:mx-0 lg:max-w-xl lg:text-left">

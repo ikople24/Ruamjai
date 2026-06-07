@@ -2,10 +2,16 @@ import Image from "next/image";
 import mark from "@/public/brand/mark.png";
 import WovenRibbons from "./WovenRibbons";
 
-const links = {
-  Company: ["About RJ", "Strategic Pillars", "Our Values", "Geographic Vision"],
-  Connect: ["Partner With Us", "Investment Inquiry", "Strategic Consultation", "Research Collaboration"],
-};
+const navItems = [
+  "About RJ",
+  "Strategic Pillars",
+  "Our Values",
+  "Geographic Vision",
+  "Partner With Us",
+  "Investment Inquiry",
+  "Strategic Consultation",
+  "Research Collaboration",
+];
 
 const socials = [
   {
@@ -32,76 +38,60 @@ export default function Footer() {
   return (
     <footer className="relative bg-navy-950 border-t border-gold-500/10 overflow-hidden">
       {/* Corner woven-ribbon graphics (mirror left / normal right) */}
-      <WovenRibbons className="hidden md:block absolute left-0 top-0 bottom-0 w-[26%] opacity-40 -scale-x-100 pointer-events-none" />
-      <WovenRibbons className="hidden md:block absolute right-0 top-0 bottom-0 w-[26%] opacity-40 pointer-events-none" />
+      <WovenRibbons className="hidden md:block absolute left-0 top-0 bottom-0 w-[24%] opacity-40 -scale-x-100 pointer-events-none" />
+      <WovenRibbons className="hidden md:block absolute right-0 top-0 bottom-0 w-[24%] opacity-40 pointer-events-none" />
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "linear-gradient(90deg, #0a0822 0%, rgba(10,8,34,0.4) 22%, transparent 38%, transparent 62%, rgba(10,8,34,0.4) 78%, #0a0822 100%)",
+            "linear-gradient(90deg, #0a0822 0%, rgba(10,8,34,0.35) 24%, transparent 42%, transparent 58%, rgba(10,8,34,0.35) 76%, #0a0822 100%)",
         }}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 py-16 lg:py-20">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mb-14">
-          {/* Brand col */}
-          <div className="lg:col-span-2">
-            <div className="flex items-center gap-4 mb-5">
-              <Image
-                src={mark}
-                alt="Ruamjai"
-                width={56}
-                height={56}
-                className="h-12 w-12 object-contain"
-              />
-              <div className="h-10 w-px bg-gold-500/30" />
-              <span className="text-cream/50 text-xs tracking-[0.2em] uppercase font-sans">
-                Ruamjai
-                <br />
-                Thai-Lao Co., Ltd.
-              </span>
-            </div>
-            <p
-              className="text-cream/80 text-xl font-light mb-4 leading-snug"
-              style={{ fontFamily: "var(--font-lemon-milk)" }}
-            >
-              Bridging Trust.
-              <br />
-              <span className="text-gold-500">Expanding Horizons.</span>
-            </p>
-            <p className="text-slate-muted text-sm font-light leading-relaxed max-w-xs">
-              Strategic Knowledge & Investment Hub — connecting Thailand, Laos,
-              and ASEAN toward sustainable growth.
-            </p>
-          </div>
-
-          {/* Links */}
-          {Object.entries(links).map(([category, items]) => (
-            <div key={category}>
-              <h4 className="text-cream/90 text-xs tracking-[0.18em] uppercase mb-5 font-sans font-medium">
-                {category}
-              </h4>
-              <ul className="space-y-3">
-                {items.map((item) => (
-                  <li key={item}>
-                    <a
-                      href="#"
-                      className="text-slate-muted hover:text-cream/80 text-sm transition-colors duration-200 font-sans font-light"
-                    >
-                      {item}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+      <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-12 py-16 lg:py-20 text-center">
+        {/* Logo — centered */}
+        <div className="flex items-center justify-center gap-4">
+          <Image src={mark} alt="Ruamjai" width={64} height={64} className="h-14 w-14 object-contain" />
+          <div className="h-12 w-px bg-gold-500/30" />
+          <span className="text-cream/60 text-xs tracking-[0.24em] uppercase font-sans text-left leading-relaxed">
+            Ruamjai
+            <br />
+            Thai-Lao Co., Ltd.
+          </span>
         </div>
 
-        {/* Divider */}
-        <div className="divider-gold mb-8" />
+        {/* Tagline */}
+        <p
+          className="mt-8 text-2xl lg:text-[1.7rem] font-light leading-snug"
+          style={{ fontFamily: "var(--font-lemon-milk)" }}
+        >
+          <span className="text-cream/85">Bridging Trust.</span>{" "}
+          <span className="text-gold-500">Expanding Horizons.</span>
+        </p>
 
-        {/* Social icons */}
-        <div className="flex justify-center gap-3 mb-10">
+        <p className="mt-4 text-slate-muted text-sm font-light leading-relaxed max-w-md mx-auto">
+          Strategic Knowledge &amp; Investment Hub — connecting Thailand, Laos, and
+          ASEAN toward sustainable growth.
+        </p>
+
+        {/* Links — centered wrap */}
+        <nav className="mt-10 flex flex-wrap justify-center gap-x-7 gap-y-3">
+          {navItems.map((item) => (
+            <a
+              key={item}
+              href="#"
+              className="text-slate-muted hover:text-cream text-sm font-sans font-light transition-colors duration-200"
+            >
+              {item}
+            </a>
+          ))}
+        </nav>
+
+        {/* Divider */}
+        <div className="divider-gold my-10 max-w-sm mx-auto" />
+
+        {/* Socials — centered */}
+        <div className="flex justify-center gap-3">
           {socials.map((s) => (
             <a
               key={s.label}
@@ -116,16 +106,16 @@ export default function Footer() {
           ))}
         </div>
 
-        {/* Bottom row */}
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-          <p className="text-slate-dim text-xs font-sans tracking-wide">
-            &copy; {year} Ruamjai Thai-Lao Co., Ltd. All rights reserved.
-          </p>
+        {/* Bottom */}
+        <div className="mt-10 flex flex-col items-center gap-2">
           <p
-            className="text-gold-500/50 text-sm font-light italic"
+            className="text-gold-500/55 text-sm font-light italic"
             style={{ fontFamily: "var(--font-lemon-milk)" }}
           >
             Smart, Sustainable, Together
+          </p>
+          <p className="text-slate-dim text-xs font-sans tracking-wide">
+            &copy; {year} Ruamjai Thai-Lao Co., Ltd. All rights reserved.
           </p>
         </div>
       </div>
