@@ -65,8 +65,8 @@ export default function Footer() {
           className="mt-8 text-2xl lg:text-[1.7rem] font-light leading-snug"
           style={{ fontFamily: "var(--font-lemon-milk)" }}
         >
-          <span className="text-cream/85">Bridging Trust.</span>{" "}
-          <span className="text-gold-500">Expanding Horizons.</span>
+          <span className="text-cream/85">Building a Sustainable Future.</span>{" "}
+          <span className="text-gold-500">Through Collaborative Innovation.</span>
         </p>
 
         <p className="mt-4 text-slate-muted text-sm font-light leading-relaxed max-w-md mx-auto">
