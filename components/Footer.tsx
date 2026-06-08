@@ -106,6 +106,23 @@ export default function Footer() {
           ))}
         </div>
 
+        {/* Contact */}
+        <address className="mt-10 not-italic text-slate-muted text-sm font-sans font-light leading-relaxed max-w-md mx-auto">
+          <p className="text-cream/75">บริษัท ร่วมใจ ไทย-ลาว จำกัด</p>
+          <p className="mt-1">
+            เลขที่ 555/83 หมู่ที่ 13 ตำบลในเมือง อำเภอเมืองขอนแก่น จังหวัดขอนแก่น 40000
+          </p>
+          <p className="mt-1">
+            E-mail:{" "}
+            <a
+              href="mailto:ruamjaithailao@gmail.com"
+              className="text-gold-500 hover:text-gold-400 transition-colors duration-200"
+            >
+              ruamjaithailao@gmail.com
+            </a>
+          </p>
+        </address>
+
         {/* Bottom */}
         <div className="mt-10 flex flex-col items-center gap-2">
           <p
