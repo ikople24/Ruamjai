@@ -136,10 +136,10 @@ export default function Hero() {
             style={{ fontFamily: "var(--font-lemon-milk)", lineHeight: 1.1, letterSpacing: "-0.01em" }}
           >
             <span className="block text-cream text-[clamp(3rem,8vw,6.5rem)] font-light">
-              Bridging
+              Building a
             </span>
             <span className="block text-[clamp(3rem,8vw,6.5rem)] font-bold text-gold-shimmer">
-              Trust.
+              Sustainable Future.
             </span>
           </h1>
 
@@ -149,8 +149,8 @@ export default function Hero() {
               className="text-[clamp(1.2rem,3.5vw,2.8rem)] font-light tracking-wide text-cream/55"
               style={{ fontFamily: "var(--font-lemon-milk)" }}
             >
-              Expanding{" "}
-              <span className="text-cream/85 font-medium">Horizons.</span>
+              Through{" "}
+              <span className="text-cream/85 font-medium">Collaborative Innovation.</span>
             </p>
           </div>
 
