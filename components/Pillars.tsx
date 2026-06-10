@@ -136,7 +136,7 @@ export default function Pillars() {
                 </p>
 
                 {/* Description */}
-                <p className="text-slate-muted text-sm leading-relaxed font-light font-sans">
+                <p className="text-white text-sm leading-relaxed font-light font-sans">
                   {pillar.desc}
                 </p>
               </div>
