@@ -44,7 +44,7 @@ export default function Footer() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "linear-gradient(90deg, #0a0822 0%, rgba(10,8,34,0.35) 24%, transparent 42%, transparent 58%, rgba(10,8,34,0.35) 76%, #0a0822 100%)",
+            "linear-gradient(90deg, #1c1850 0%, rgba(28,24,80,0.35) 24%, transparent 42%, transparent 58%, rgba(28,24,80,0.35) 76%, #1c1850 100%)",
         }}
       />
 

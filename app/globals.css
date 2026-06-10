@@ -2,15 +2,16 @@
 
 @theme {
   /* ── Indigo — brand primary #262265 (60%) ───────────────
-     "navy-*" names kept so existing utilities keep working,
-     but the values are now the brand indigo family.        */
-  --color-navy-950: #0a0822;
-  --color-navy-900: #110e35;
-  --color-navy-800: #181449;
-  --color-navy-700: #1f1a59;
-  --color-navy-600: #262265; /* ← brand */
-  --color-navy-500: #322d82;
-  --color-navy-400: #443ca3;
+     "navy-*" names kept so existing utilities keep working.
+     The scale is now anchored on the brand indigo #262265 as
+     the dominant background, with lighter shades stepping up. */
+  --color-navy-950: #262265; /* ← brand — primary background */
+  --color-navy-900: #2c2872;
+  --color-navy-800: #332e84;
+  --color-navy-700: #3a3496;
+  --color-navy-600: #443ca3;
+  --color-navy-500: #5048b5;
+  --color-navy-400: #5e55c8;
 
   /* ── Amber — brand accent #FBB040 (30%) ─────────────────
      "gold-*" names kept; values are now the brand amber.    */
@@ -62,7 +63,7 @@ html {
 }
 
 body {
-  background-color: #110e35;
+  background-color: #262265;
   color: #eef1f8;
   font-family: var(--font-fc-minimal), ui-sans-serif, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;

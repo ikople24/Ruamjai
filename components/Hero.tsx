@@ -9,7 +9,7 @@ export default function Hero() {
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse 68% 55% at 80% 12%, rgba(251,176,64,0.09) 0%, transparent 65%), radial-gradient(ellipse 62% 58% at 12% 86%, rgba(48,194,242,0.10) 0%, transparent 65%), radial-gradient(ellipse 60% 80% at 88% 82%, rgba(38,34,101,0.55) 0%, transparent 70%), linear-gradient(180deg, #0a0822 0%, #110e35 50%, #0d0a2e 100%)",
+              "radial-gradient(ellipse 68% 55% at 80% 12%, rgba(251,176,64,0.09) 0%, transparent 65%), radial-gradient(ellipse 62% 58% at 12% 86%, rgba(48,194,242,0.10) 0%, transparent 65%), radial-gradient(ellipse 60% 80% at 88% 82%, rgba(58,52,150,0.45) 0%, transparent 70%), linear-gradient(180deg, #221d5c 0%, #262265 50%, #201b54 100%)",
           }}
         />
       </div>

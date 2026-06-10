@@ -8,7 +8,7 @@ export default function CTA() {
       className="relative py-28 lg:py-40 overflow-hidden"
       style={{
         background:
-          "linear-gradient(135deg, #080620 0%, #110e35 40%, #181449 100%)",
+          "linear-gradient(135deg, #201b54 0%, #262265 40%, #332e84 100%)",
       }}
     >
       {/* Gold radial burst */}
