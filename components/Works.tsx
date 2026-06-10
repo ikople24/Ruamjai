@@ -21,8 +21,8 @@ function WorkArt({ seed }: { seed: number }) {
     <svg viewBox="0 0 400 240" className="absolute inset-0 h-full w-full" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
       <defs>
         <linearGradient id={`wk-${seed}`} x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#1a1650" />
-          <stop offset="100%" stopColor="#080620" />
+          <stop offset="0%" stopColor="#332e84" />
+          <stop offset="100%" stopColor="#262265" />
         </linearGradient>
       </defs>
       <rect width="400" height="240" fill={`url(#wk-${seed})`} />
