@@ -43,12 +43,12 @@ const cards = [
 
 export default function AboutCards() {
   return (
-    <section id="about" className="relative bg-navy-800 py-24 lg:py-32 overflow-hidden">
+    <section id="about" className="relative bg-white py-24 lg:py-32 overflow-hidden">
       {/* faint dot grid */}
       <div
-        className="absolute inset-0 opacity-[0.04] pointer-events-none"
+        className="absolute inset-0 opacity-[0.05] pointer-events-none"
         style={{
-          backgroundImage: "radial-gradient(circle at 1px 1px, #fff 1px, transparent 0)",
+          backgroundImage: "radial-gradient(circle at 1px 1px, #262265 1px, transparent 0)",
           backgroundSize: "34px 34px",
         }}
       />
@@ -58,7 +58,7 @@ export default function AboutCards() {
           <div className="text-center mb-14 lg:mb-20">
             <span className="section-label justify-center">Who We Are</span>
             <h2
-              className="mt-5 text-[clamp(2rem,4.5vw,3.4rem)] font-light text-cream"
+              className="mt-5 text-[clamp(2rem,4.5vw,3.4rem)] font-light text-navy-950"
               style={{ fontFamily: "var(--font-lemon-milk)" }}
             >
               About <span className="text-gold-shimmer font-semibold">Us</span>

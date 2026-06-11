@@ -37,8 +37,9 @@
   /* Cool neutral / text */
   --color-cream: #eef1f8;
   --color-cream-dark: #d4d8e8;
-  --color-slate-muted: #8f96bd;
-  --color-slate-dim: #51527e;
+  /* Names kept for compatibility; secondary text now renders white by design. */
+  --color-slate-muted: #ffffff; /* was #8f96bd */
+  --color-slate-dim: #ffffff; /* was #51527e */
 
   /* Fonts */
   --font-display: var(--font-lemon-milk);
