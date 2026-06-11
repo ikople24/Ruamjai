@@ -3,17 +3,6 @@ import WovenRibbons from "./WovenRibbons";
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-navy-950">
-      {/* Background gradient mesh */}
-      <div className="absolute inset-0">
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(ellipse 68% 55% at 80% 12%, rgba(251,176,64,0.09) 0%, transparent 65%), radial-gradient(ellipse 62% 58% at 12% 86%, rgba(48,194,242,0.10) 0%, transparent 65%), radial-gradient(ellipse 60% 80% at 88% 82%, rgba(58,52,150,0.45) 0%, transparent 70%), linear-gradient(180deg, #221d5c 0%, #262265 50%, #201b54 100%)",
-          }}
-        />
-      </div>
-
       {/* Animated SVG bridge/connection lines */}
       <div className="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
         <svg
@@ -189,9 +178,6 @@ export default function Hero() {
           </svg>
         </div>
       </div>
-
-      {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-navy-900 to-transparent pointer-events-none" />
     </section>
   );
 }
